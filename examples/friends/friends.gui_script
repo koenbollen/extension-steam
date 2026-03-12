@@ -105,4 +105,8 @@ function on_input(self, action_id, action)
 			print("No friend online")
 		end
 	end)
+	rpg.button("activate_game_overlay", action_id, action, function()
+		steam.friends_set_rich_presence("connect", "testing")
+		steam.friends_activate_game_overlay("friends")
+	end)
 end

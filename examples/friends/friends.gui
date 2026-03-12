@@ -232,6 +232,30 @@ nodes {
   overridden_fields: 8
   template_node_child: true
 }
+nodes {
+  position {
+    y: 30.0
+  }
+  type: TYPE_TEMPLATE
+  id: "activate_game_overlay"
+  parent: "rich_presence_panel"
+  inherit_alpha: true
+  template: "/gooey-rpg/components/button.gui"
+}
+nodes {
+  type: TYPE_BOX
+  id: "activate_game_overlay/bg"
+  parent: "activate_game_overlay"
+  template_node_child: true
+}
+nodes {
+  type: TYPE_TEXT
+  text: "GAME OVERLAY"
+  id: "activate_game_overlay/label"
+  parent: "activate_game_overlay/bg"
+  overridden_fields: 8
+  template_node_child: true
+}
 layers {
   name: "below"
 }
