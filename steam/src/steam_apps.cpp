@@ -61,4 +61,17 @@ int SteamApps_IsSubscribedApp(lua_State* L)
 	return 1;
 }
 
+/** Return launch commandline (required to prevent Steam from showing a warning pop-up)
+ * @name apps_get_launch_command_line
+ * @treturn string launch_command_line
+ */
+int SteamApps_GetLaunchCommandLine(lua_State* L) {
+	if (!g_SteamApps) return 0;
+	DM_LUA_STACK_CHECK(L, 1);
+	char *pszCommandLine[1024];
+	int cubCommandLine = g_SteamApps->GetLaunchCommandLine(pszCommandLine, 1024);
+	lua_pushlstring(L, pszCommandLine, cubCommandLine);
+	return 1;
+}
+
 #endif
